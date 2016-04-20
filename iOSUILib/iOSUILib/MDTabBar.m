@@ -109,7 +109,7 @@
   [super insertSegmentWithImage:image atIndex:segment animated:animated];
   [self resizeItems];
   [self updateSegmentsList];
-  [self addRippleLayers];
+  //[self addRippleLayers];
   [self performSelector:@selector(moveIndicatorToSelectedIndexWithAnimated:)
              withObject:[NSNumber numberWithBool:animated]
              afterDelay:.001f];
@@ -121,7 +121,7 @@
   [super insertSegmentWithTitle:title atIndex:segment animated:animated];
   [self resizeItems];
   [self updateSegmentsList];
-  [self addRippleLayers];
+  //[self addRippleLayers];
   [self performSelector:@selector(moveIndicatorToSelectedIndexWithAnimated:)
              withObject:[NSNumber numberWithBool:animated]
              afterDelay:.001f];
