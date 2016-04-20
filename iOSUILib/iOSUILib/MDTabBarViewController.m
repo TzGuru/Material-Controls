@@ -144,6 +144,10 @@
   [_tabBar setItems:items];
 }
 
+- (void)moveToIndex:(NSUInteger)index {
+    [self moveToPage:index];
+}
+
 #pragma PageViewControllerDataSource
 - (UIViewController *)pageViewController:
                           (UIPageViewController *)pageViewController
