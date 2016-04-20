@@ -234,7 +234,7 @@ UIPageViewControllerDataSource, UIScrollViewDelegate>
     [pageController
      setViewControllers:@[ viewController ]
      direction:animateDirection
-     animated:YES
+     animated:NO
      completion:^(BOOL finished) {
          weakSelf->disableDragging = NO;
          weakSelf->pageController.view.userInteractionEnabled = YES;
