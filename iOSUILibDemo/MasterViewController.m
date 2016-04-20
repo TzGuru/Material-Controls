@@ -22,8 +22,6 @@
 
 #import "ButtonViewController.h"
 #import "CollectionViewController.h"
-#import "DatePickerDialogController.h"
-#import "DatePickerViewController.h"
 #import "FloatingButtonTableViewController.h"
 #import "MasterViewController.h"
 #import "ProgressViewController.h"
@@ -34,9 +32,7 @@
 #import "TabBarViewControllerViewController.h"
 #import "TableViewController.h"
 #import "TextFieldViewController.h"
-#import "TimePickerDialogViewController.h"
 #import "ToastViewController.h"
-#import "iOSUILib/Calendar/NSCalendarHelper.h"
 
 @interface MasterViewController ()
 
@@ -53,9 +49,8 @@ static NSArray *controlsName;
     controlsName = [NSArray
         arrayWithObjects:@"Button", @"ButtonFloating", @"TableView Cell",
                          @"Progress Bar", @"Text Field", @"Switch",
-                         @"Date Picker", @"Date Picker Dialog",
                          @"Collection View Cell", @"Tab Bar",
-                         @"Time Picker Dialog", @"Tab Bar View Controller",
+                         @"Tab Bar View Controller",
                          @"Snackbar", @"Toast", @"Slider", nil];
 
   return controlsName;
@@ -72,7 +67,6 @@ static NSArray *controlsName;
     [self insertRow:control];
   }
   [self.navigationController.navigationBar setTranslucent:NO];
-  [[NSCalendarHelper mdSharedCalendar] setFirstWeekday:2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,16 +117,10 @@ static NSArray *controlsName;
     controller = [[TextFieldViewController alloc] init];
   } else if ([row isEqualToString:@"Switch"]) {
     controller = [[SwitchViewController alloc] init];
-  } else if ([row isEqualToString:@"Date Picker"]) {
-    controller = [[DatePickerViewController alloc] init];
-  } else if ([row isEqualToString:@"Date Picker Dialog"]) {
-    controller = [[DatePickerDialogController alloc] init];
   } else if ([row isEqualToString:@"Collection View Cell"]) {
     controller = [[CollectionViewController alloc] init];
   } else if ([row isEqualToString:@"Tab Bar"]) {
     controller = [[TabBarViewController alloc] init];
-  } else if ([row isEqualToString:@"Time Picker Dialog"]) {
-    controller = [[TimePickerDialogViewController alloc] init];
   } else if ([row isEqualToString:@"Tab Bar View Controller"]) {
     controller = [[TabBarViewControllerViewController alloc] init];
   } else if ([row isEqualToString:@"Snackbar"]) {

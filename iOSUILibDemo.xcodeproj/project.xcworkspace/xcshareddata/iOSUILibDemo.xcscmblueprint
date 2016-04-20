@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FCDAC480F86D16ED2AB664A5F0E7A39B977692E1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4C26C3EDBF2E1880D69EC96EB92121A2836BA66F" : 0,
+    "FCDAC480F86D16ED2AB664A5F0E7A39B977692E1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "01B61F17-E71A-45C7-8F7D-97A21A399346",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4C26C3EDBF2E1880D69EC96EB92121A2836BA66F" : "Material-Controls-For-iOS",
+    "FCDAC480F86D16ED2AB664A5F0E7A39B977692E1" : "Material-Controls\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iOSUILibDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOSUILibDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/fpt-software\/Material-Controls-For-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4C26C3EDBF2E1880D69EC96EB92121A2836BA66F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aronspringfield\/Material-Controls.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FCDAC480F86D16ED2AB664A5F0E7A39B977692E1"
+    }
+  ]
+}
