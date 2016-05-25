@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) MDTabBar *tabBar;
 @property(nonatomic, weak) id<MDTabBarViewControllerDelegate> delegate;
 @property(nonatomic) NSUInteger selectedIndex;
+@property(nonatomic, assign) BOOL swipeBetweenTabsEnabled;
 
 - (instancetype)initWithDelegate:(id<MDTabBarViewControllerDelegate>)delegate;
 - (void)setItems:(NSArray<id> *)items;

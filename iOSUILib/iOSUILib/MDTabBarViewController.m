@@ -46,6 +46,7 @@ UIPageViewControllerDataSource, UIScrollViewDelegate>
 - (void)initContent {
     _tabBar = [[MDTabBar alloc] init];
     _tabBar.delegate = self;
+    _swipeBetweenTabsEnabled = TRUE;
     
     // create page controller
     pageController = [[UIPageViewController alloc]
@@ -151,6 +152,15 @@ UIPageViewControllerDataSource, UIScrollViewDelegate>
 - (void)refreshContentLayout {
     [pageController.view setNeedsLayout];
     [pageController.view layoutIfNeeded];
+}
+
+- (void)setSwipeBetweenTabsEnabled:(BOOL)swipeBetweenTabsEnabled {
+    if (_swipeBetweenTabsEnabled != swipeBetweenTabsEnabled) {
+        _swipeBetweenTabsEnabled = swipeBetweenTabsEnabled;
+        
+        // Set the data source to nil to disable paging
+        pageController.dataSource = swipeBetweenTabsEnabled ? self : nil;
+    }
 }
 
 #pragma PageViewControllerDataSource
@@ -282,6 +292,11 @@ didChangeSelectedIndex:(NSUInteger)selectedIndex {
 #pragma mark - ScrollView Delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if (!self.swipeBetweenTabsEnabled)
+    {
+        return;
+    }
     
     CGPoint offset = scrollView.contentOffset;
     
