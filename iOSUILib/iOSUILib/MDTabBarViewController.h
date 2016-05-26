@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 - (void)tabBarViewController:(MDTabBarViewController *)viewController
               didMoveToIndex:(NSUInteger)index;
+- (void)tabBarViewController:(MDTabBarViewController *)viewController
+            didReturnToIndex:(NSUInteger)index;
 @end
 
 @interface MDTabBarViewController : UIViewController

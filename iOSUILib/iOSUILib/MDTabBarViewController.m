@@ -265,7 +265,14 @@ UIPageViewControllerDataSource, UIScrollViewDelegate>
    previousViewControllers:(NSArray *)previousViewControllers
        transitionCompleted:(BOOL)completed {
     if (!completed)
+    {
+        if ([self.delegate
+             respondsToSelector:@selector(tabBarViewController:didReturnToIndex:)]) {
+            [self.delegate tabBarViewController:self
+                               didReturnToIndex:_tabBar.selectedIndex];
+        }
         return;
+    }
     
     id currentView = [pageViewController.viewControllers objectAtIndex:0];
     
