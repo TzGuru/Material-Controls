@@ -579,6 +579,11 @@
     segmentedControl.horizontalPadding = padding;
 }
 
+- (UISegmentedControl *)segmentedControl
+{
+    return segmentedControl;
+}
+
 #pragma mark Setters
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {

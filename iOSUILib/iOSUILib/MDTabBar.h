@@ -71,5 +71,7 @@ IB_DESIGNABLE
 
 - (void)moveIndicatorToFrame:(CGRect)frame withAnimated:(BOOL)animated;
 
+- (UISegmentedControl *)segmentedControl;
+
 @end
 NS_ASSUME_NONNULL_END
