@@ -49,7 +49,7 @@
 
 @implementation MDSegmentedControl {
     UIView *indicatorView;
-    UIView *indicatorFullLengthView;
+    UIView *indicatorBackgroundView;
     UIView *beingTouchedView;
     UIFont *font;
     MDTabBar *tabBar;
@@ -61,9 +61,8 @@
 - (instancetype)initWithTabBar:(MDTabBar *)bar {
     if (self = [super init]) {
         _tabs = [NSMutableArray array];
-        indicatorFullLengthView = [[UIView alloc] initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDIndicatorHeight, 0, kMDIndicatorHeight)];
-        indicatorFullLengthView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1];
-        [self addSubview:indicatorFullLengthView];
+        indicatorBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDIndicatorHeight, 0, kMDIndicatorHeight)];
+        [self addSubview:indicatorBackgroundView];
         
         indicatorView = [[UIView alloc]
                          initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDIndicatorHeight, 0,
@@ -189,6 +188,10 @@
     indicatorView.backgroundColor = color;
 }
 
+- (void)setIndicatorBackgroundColor:(UIColor *)color {
+    indicatorBackgroundView.backgroundColor = color;
+}
+
 - (void)setRippleColor:(UIColor *)rippleColor {
     _rippleColor = rippleColor;
     for (UIView *view in self.subviews) {
@@ -267,7 +270,7 @@
                    frame.size.width, kMDIndicatorHeight);
     }
     
-    indicatorFullLengthView.frame =
+    indicatorBackgroundView.frame =
     CGRectMake(0, self.bounds.size.height - kMDIndicatorHeight,
                self.bounds.size.width, kMDIndicatorHeight);
 }
@@ -503,7 +506,7 @@
     
     [self addSubview:scrollView];
     
-    self.horizontalPaddingPerItem = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 24 : 12;
+    self.horizontalPaddingPerItem = 12;//(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 24 : 12;
     segmentedControl.horizontalPadding = self.horizontalPaddingPerItem;
     
     [self setBackgroundColor:[UIColorHelper colorWithRGBA:kMDColorPrimary500]];
@@ -620,6 +623,9 @@
 {
     _horizontalPaddingPerItem = padding;
     segmentedControl.horizontalPadding = padding;
+}
+- (void)setIndicatorBackgroundColor:(UIColor *)color {
+    [segmentedControl setIndicatorBackgroundColor:color];
 }
 
 - (void)setIconColor:(UIColor *)newIconColor {

@@ -42,7 +42,9 @@ IB_DESIGNABLE
 @property(null_unspecified, nonatomic) IBInspectable UIColor *normalTextColor;
 @property(null_unspecified, nonatomic) IBInspectable UIColor *backgroundColor;
 @property(null_unspecified, nonatomic) IBInspectable UIColor *indicatorColor;
+@property(null_unspecified, nonatomic) IBInspectable UIColor *indicatorBackgroundColor;
 @property(null_unspecified, nonatomic) IBInspectable UIColor *rippleColor;
+@property(null_unspecified, nonatomic) IBInspectable UIColor *iconColor;
 
 /// selected font
 @property(nullable, nonatomic) UIFont *textFont;
@@ -70,8 +72,6 @@ IB_DESIGNABLE
 - (NSArray <UIView*>*)tabs;
 
 - (void)moveIndicatorToFrame:(CGRect)frame withAnimated:(BOOL)animated;
-
-- (void)setIconColor:(UIColor *)iconColor;
 
 @end
 NS_ASSUME_NONNULL_END
