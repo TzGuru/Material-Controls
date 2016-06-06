@@ -27,6 +27,7 @@
 #import <uiKit/UISegmentedControl.h>
 #import <Foundation/Foundation.h>
 #import "UIFontHelper.h"
+#import "UIImageHelper.h"
 
 #pragma mark - MDTabBar
 
@@ -52,6 +53,9 @@
     UIView *beingTouchedView;
     UIFont *font;
     MDTabBar *tabBar;
+    NSMutableArray<UIImage *> *iconImages;
+    UIColor *iconColor;
+    int previousIndex;
 }
 
 - (instancetype)initWithTabBar:(MDTabBar *)bar {
@@ -70,7 +74,8 @@
                  action:@selector(selectionChanged:)
        forControlEvents:UIControlEventValueChanged];
         tabBar = bar;
-        
+        iconColor = [UIColor whiteColor];
+        previousIndex = 0;
     }
     
     return self;
@@ -89,10 +94,12 @@
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex {
     [super setSelectedSegmentIndex:selectedSegmentIndex];
     [self moveIndicatorToSelectedIndexWithAnimated:YES];
+    [self updateSelectedIconImage];
 }
 
 - (void)selectionChanged:(id)sender {
     [self moveIndicatorToSelectedIndexWithAnimated:YES];
+    [self updateSelectedIconImage];
     [tabBar updateSelectedIndex:self.selectedSegmentIndex];
 }
 
@@ -106,11 +113,30 @@
     }
 }
 
+- (void)updateSelectedIconImage {
+    if (iconImages.count > self.selectedSegmentIndex * 3 + 1) {
+        [self setImage:iconImages[previousIndex * 3 + 2] forSegmentAtIndex:previousIndex];
+        [self setImage:iconImages[self.selectedSegmentIndex * 3 + 1] forSegmentAtIndex:self.selectedSegmentIndex];
+    }
+    previousIndex = self.selectedSegmentIndex;
+}
+
 #pragma mark Override Methods
 
 - (void)insertSegmentWithImage:(UIImage *)image
                        atIndex:(NSUInteger)segment
                       animated:(BOOL)animated {
+    if (iconImages == nil) {
+        iconImages = [[NSMutableArray alloc] initWithCapacity:12];
+    }
+    
+    UIImage *selectedImage = [[image imageWithTintColour:iconColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *unselectedImage = [[image imageWithTintColour:[iconColor colorWithAlphaComponent:0.6]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [iconImages insertObject:image atIndex:segment * 3];
+    [iconImages insertObject:selectedImage atIndex:segment * 3 + 1];
+    [iconImages insertObject:unselectedImage atIndex:segment * 3 + 2];
+    
+    image = segment == self.selectedSegmentIndex ? selectedImage : unselectedImage;
     [super insertSegmentWithImage:image atIndex:segment animated:animated];
     [self resizeItems];
     [self updateSegmentsList];
@@ -140,13 +166,13 @@
                afterDelay:.001f];
 }
 
-- (void)setImage:(UIImage *)image forSegmentAtIndex:(NSUInteger)segment {
-    [super setImage:image forSegmentAtIndex:segment];
-    [self resizeItems];
-    [self performSelector:@selector(moveIndicatorToSelectedIndexWithAnimated:)
-               withObject:[NSNumber numberWithBool:YES]
-               afterDelay:.001f];
-}
+//- (void)setImage:(UIImage *)image forSegmentAtIndex:(NSUInteger)segment {
+//    [super setImage:image forSegmentAtIndex:segment];
+//    [self resizeItems];
+//    [self performSelector:@selector(moveIndicatorToSelectedIndexWithAnimated:)
+//               withObject:[NSNumber numberWithBool:YES]
+//               afterDelay:.001f];
+//}
 
 - (void)removeSegmentAtIndex:(NSUInteger)segment animated:(BOOL)animated {
     [super removeSegmentAtIndex:segment animated:animated];
@@ -174,6 +200,21 @@
                 return;
             }
         }
+    }
+}
+
+- (void)setIconColor:(UIColor *)newIconColor {
+    iconColor = newIconColor;
+    UIColor *disabledColor = [iconColor colorWithAlphaComponent:0.6];
+    
+    for (int i=0; i<self.numberOfSegments; i++) {
+        UIImage *originalImage = [iconImages objectAtIndex:i * 3];
+        UIImage *selectedImage = [[originalImage imageWithTintColour:iconColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIImage *unselectedImage = [[originalImage imageWithTintColour:disabledColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [iconImages replaceObjectAtIndex:i * 3 + 1 withObject:selectedImage];
+        [iconImages replaceObjectAtIndex:i * 3 + 2 withObject:unselectedImage];
+        
+        [self setImage:[i == self.selectedSegmentIndex ? selectedImage : unselectedImage imageWithTintColour:disabledColor] forSegmentAtIndex:i];
     }
 }
 
@@ -526,8 +567,10 @@
 #pragma mark Public methods
 
 - (void)updateSelectedIndex:(NSInteger)selectedIndex {
+    int previousIndex = _selectedIndex;
     _selectedIndex = selectedIndex;
     [self scrollToSelectedIndex];
+    
     if (_delegate) {
         [_delegate tabBar:self didChangeSelectedIndex:_selectedIndex];
     }
@@ -579,9 +622,8 @@
     segmentedControl.horizontalPadding = padding;
 }
 
-- (UISegmentedControl *)segmentedControl
-{
-    return segmentedControl;
+- (void)setIconColor:(UIColor *)newIconColor {
+    [segmentedControl setIconColor:newIconColor];
 }
 
 #pragma mark Setters

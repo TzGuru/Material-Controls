@@ -30,7 +30,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol MDTabBarDelegate <NSObject>
 - (void)tabBar:(MDTabBar *)tabBar
-    didChangeSelectedIndex:(NSUInteger)selectedIndex;
+didChangeSelectedIndex:(NSUInteger)selectedIndex;
 @end
 
 IB_DESIGNABLE
@@ -71,7 +71,7 @@ IB_DESIGNABLE
 
 - (void)moveIndicatorToFrame:(CGRect)frame withAnimated:(BOOL)animated;
 
-- (UISegmentedControl *)segmentedControl;
+- (void)setIconColor:(UIColor *)iconColor;
 
 @end
 NS_ASSUME_NONNULL_END
