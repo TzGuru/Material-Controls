@@ -214,7 +214,7 @@
         [iconImages replaceObjectAtIndex:i * 3 + 1 withObject:selectedImage];
         [iconImages replaceObjectAtIndex:i * 3 + 2 withObject:unselectedImage];
         
-        [self setImage:[i == self.selectedSegmentIndex ? selectedImage : unselectedImage imageWithTintColour:disabledColor] forSegmentAtIndex:i];
+        [self setImage:i == self.selectedSegmentIndex ? selectedImage : unselectedImage forSegmentAtIndex:i];
     }
 }
 
