@@ -95,7 +95,7 @@
 		92FA76751BE0868E00BDE6E7 /* TextFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FA76741BE0868E00BDE6E7 /* TextFieldViewController.m */; };
 		92FA76771BE0874C00BDE6E7 /* TextFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92FA76761BE0874C00BDE6E7 /* TextFieldViewController.xib */; };
 		92FA76781BE08BB400BDE6E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D8DE6E1A7A16E700D083A1 /* Main.storyboard */; };
-		EC288F6A1D05897200AC1899 /* UIImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC288F691D05897200AC1899 /* UIImageHelper.m */; };
+		EC288F6A1D05897200AC1899 /* UIImageHelper.h in Sources */ = {isa = PBXBuildFile; fileRef = EC288F691D05897200AC1899 /* UIImageHelper.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,8 +241,8 @@
 		92FA76731BE0868E00BDE6E7 /* TextFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldViewController.h; sourceTree = "<group>"; };
 		92FA76741BE0868E00BDE6E7 /* TextFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldViewController.m; sourceTree = "<group>"; };
 		92FA76761BE0874C00BDE6E7 /* TextFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldViewController.xib; sourceTree = "<group>"; };
-		EC288F681D05897200AC1899 /* UIImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageHelper.h; sourceTree = "<group>"; };
-		EC288F691D05897200AC1899 /* UIImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageHelper.m; sourceTree = "<group>"; };
+		EC288F681D05897200AC1899 /* UIImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageHelper.m; sourceTree = "<group>"; };
+		EC288F691D05897200AC1899 /* UIImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,8 +367,8 @@
 				889FB5901C55DBA6006D110B /* MDToast.m */,
 				889FB5911C55DBA6006D110B /* MDTouchGestureRecognizer.h */,
 				889FB5921C55DBA6006D110B /* MDTouchGestureRecognizer.m */,
-				EC288F681D05897200AC1899 /* UIImageHelper.h */,
-				EC288F691D05897200AC1899 /* UIImageHelper.m */,
+				EC288F681D05897200AC1899 /* UIImageHelper.m */,
+				EC288F691D05897200AC1899 /* UIImageHelper.h */,
 				889FB5991C55DBA6006D110B /* Progress */,
 				889FB5A21C55DBA6006D110B /* Slider */,
 				889FB5A71C55DBA6006D110B /* SuggestPopup */,
@@ -635,7 +635,7 @@
 				925190701AC90BD600D4FC0A /* SwitchViewController.m in Sources */,
 				889FB5C61C55DBA6006D110B /* MDTableViewCell.m in Sources */,
 				889FB5C81C55DBA6006D110B /* MDToast.m in Sources */,
-				EC288F6A1D05897200AC1899 /* UIImageHelper.m in Sources */,
+				EC288F6A1D05897200AC1899 /* UIImageHelper.h in Sources */,
 				889FB5B71C55DBA6006D110B /* MDDeviceHelper.m in Sources */,
 				889FB5BE1C55DBA6006D110B /* MDCollectionViewCell.m in Sources */,
 				889FB5CF1C55DBA6006D110B /* MDSliderThumbView.m in Sources */,
