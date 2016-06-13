@@ -632,6 +632,15 @@
     [segmentedControl setIconColor:newIconColor];
 }
 
+- (CGRect)getSegmentBoundsRectAtIndex:(NSInteger)index
+{
+    CGRect frame = CGRectZero;
+    if (index >= 0 && (index < segmentedControl.numberOfSegments) && (index < segmentedControl.tabs.count)) {
+        frame = ((UIView *)segmentedControl.tabs[index]).frame;
+    }
+    return frame;
+}
+
 #pragma mark Setters
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
