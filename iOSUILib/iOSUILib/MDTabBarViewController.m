@@ -241,6 +241,13 @@ UIPageViewControllerDataSource, UIScrollViewDelegate>
     __unsafe_unretained typeof(self) weakSelf = self;
     disableDragging = YES;
     pageController.view.userInteractionEnabled = NO;
+    
+    if ([self.delegate respondsToSelector:@selector(tabBarViewController:
+                                                    willMoveToIndex:)]) {
+        [self.delegate tabBarViewController:self
+                            willMoveToIndex:selectedIndex];
+    }
+    
     [pageController
      setViewControllers:@[ viewController ]
      direction:animateDirection

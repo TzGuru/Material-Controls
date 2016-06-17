@@ -28,11 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MDTabBarViewControllerDelegate <NSObject>
 
-- (UIViewController *)tabBarViewController:
-                          (MDTabBarViewController *)viewController
+- (UIViewController *)tabBarViewController:(MDTabBarViewController *)viewController
                      viewControllerAtIndex:(NSUInteger)index;
 
 @optional
+- (void)tabBarViewController:(MDTabBarViewController *)viewController
+             willMoveToIndex:(NSUInteger)index;
 - (void)tabBarViewController:(MDTabBarViewController *)viewController
               didMoveToIndex:(NSUInteger)index;
 - (void)tabBarViewController:(MDTabBarViewController *)viewController
