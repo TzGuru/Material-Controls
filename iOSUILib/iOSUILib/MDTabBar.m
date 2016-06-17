@@ -641,6 +641,11 @@
     return frame;
 }
 
+- (UISegmentedControl *)segmentedControl
+{
+    return segmentedControl;
+}
+
 #pragma mark Setters
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
