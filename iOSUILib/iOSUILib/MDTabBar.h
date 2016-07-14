@@ -24,6 +24,7 @@
 
 #define kMDTabBarHeight 48
 #define kMDIndicatorHeight 2
+#define kMDTabBarBorderLineHeight 1
 
 @class MDTabBar;
 
@@ -43,6 +44,7 @@ IB_DESIGNABLE
 @property(null_unspecified, nonatomic) IBInspectable UIColor *backgroundColor;
 @property(null_unspecified, nonatomic) IBInspectable UIColor *indicatorColor;
 @property(null_unspecified, nonatomic) IBInspectable UIColor *indicatorBackgroundColor;
+@property(null_unspecified, nonatomic) IBInspectable UIColor *bottomEdgeBorderColor;
 @property(null_unspecified, nonatomic) IBInspectable UIColor *rippleColor;
 @property(null_unspecified, nonatomic) IBInspectable UIColor *iconColor;
 

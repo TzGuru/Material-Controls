@@ -50,6 +50,7 @@
 @implementation MDSegmentedControl {
     UIView *indicatorView;
     UIView *indicatorBackgroundView;
+    UIView *bottomEdgeBorderLineView;
     UIView *beingTouchedView;
     UIFont *font;
     MDTabBar *tabBar;
@@ -61,13 +62,16 @@
 - (instancetype)initWithTabBar:(MDTabBar *)bar {
     if (self = [super init]) {
         _tabs = [NSMutableArray array];
-        indicatorBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDIndicatorHeight, 0, kMDIndicatorHeight)];
+        indicatorBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDIndicatorHeight - kMDTabBarBorderLineHeight, 0, kMDIndicatorHeight)];
         [self addSubview:indicatorBackgroundView];
         
         indicatorView = [[UIView alloc]
-                         initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDIndicatorHeight, 0,
+                         initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDIndicatorHeight - kMDTabBarBorderLineHeight, 0,
                                                   kMDIndicatorHeight)];
         indicatorView.tag = NSIntegerMax;
+        bottomEdgeBorderLineView = [[UIView alloc] initWithFrame:CGRectMake(0, kMDTabBarHeight - kMDTabBarBorderLineHeight, 0, kMDTabBarBorderLineHeight)];
+        bottomEdgeBorderLineView.backgroundColor = [UIColor clearColor];
+        [self addSubview:bottomEdgeBorderLineView];
         [self addSubview:indicatorView];
         [self addTarget:self
                  action:@selector(selectionChanged:)
@@ -192,6 +196,10 @@
     indicatorBackgroundView.backgroundColor = color;
 }
 
+- (void)setBottomEdgeBorderColor:(UIColor *)color {
+    bottomEdgeBorderLineView.backgroundColor = color;
+}
+
 - (void)setRippleColor:(UIColor *)rippleColor {
     _rippleColor = rippleColor;
     for (UIView *view in self.subviews) {
@@ -261,18 +269,21 @@
                          animations:^{
                              indicatorView.frame =
                              CGRectMake(frame.origin.x, self.bounds.size.height -
-                                        kMDIndicatorHeight,
+                                        kMDIndicatorHeight - kMDTabBarBorderLineHeight,
                                         frame.size.width, kMDIndicatorHeight);
                          }];
     } else {
         indicatorView.frame =
-        CGRectMake(frame.origin.x, self.bounds.size.height - kMDIndicatorHeight,
+        CGRectMake(frame.origin.x, self.bounds.size.height - kMDIndicatorHeight - kMDTabBarBorderLineHeight,
                    frame.size.width, kMDIndicatorHeight);
     }
     
     indicatorBackgroundView.frame =
-    CGRectMake(0, self.bounds.size.height - kMDIndicatorHeight,
+    CGRectMake(0, self.bounds.size.height - kMDIndicatorHeight - kMDTabBarBorderLineHeight,
                self.bounds.size.width, kMDIndicatorHeight);
+    bottomEdgeBorderLineView.frame =
+    CGRectMake(0, self.bounds.size.height - kMDTabBarBorderLineHeight,
+               self.bounds.size.width, kMDTabBarBorderLineHeight);
 }
 
 #pragma mark Private Methods
@@ -624,8 +635,13 @@
     _horizontalPaddingPerItem = padding;
     segmentedControl.horizontalPadding = padding;
 }
+
 - (void)setIndicatorBackgroundColor:(UIColor *)color {
     [segmentedControl setIndicatorBackgroundColor:color];
+}
+
+- (void)setBottomEdgeBorderColor:(UIColor *)color {
+    [segmentedControl setBottomEdgeBorderColor:color];
 }
 
 - (void)setIconColor:(UIColor *)newIconColor {
