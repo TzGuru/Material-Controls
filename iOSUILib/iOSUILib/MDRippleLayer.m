@@ -132,9 +132,9 @@
   } else if (flag) {
     if (_userIsHolding) {
       _effectIsRunning = false;
-      if (self.delegate) {
-        [self.delegate mdLayer:self didFinishEffect:anim.duration];
-      }
+        if ([self.delegate respondsToSelector:@selector(mdLayer:didFinishEffect:)]) {
+            [((id<MDLayerDelegate>)self.delegate) mdLayer:self didFinishEffect:anim.duration];
+        }
     } else {
       [self clearEffects];
     }
