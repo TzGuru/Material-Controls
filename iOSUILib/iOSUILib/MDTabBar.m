@@ -229,6 +229,15 @@
     }
 }
 
+- (void)setHorizontalPadding:(CGFloat)horizontalPadding
+{
+    if (horizontalPadding != _horizontalPadding)
+    {
+        _horizontalPadding = horizontalPadding;
+        [self resizeItems];
+    }
+}
+
 #pragma mark Public Methods
 
 - (CGRect)getSelectedSegmentFrame {
@@ -517,7 +526,7 @@
     
     [self addSubview:scrollView];
     
-    self.horizontalPaddingPerItem = 12;//(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 24 : 12;
+    self.horizontalPaddingPerItem = 12;
     segmentedControl.horizontalPadding = self.horizontalPaddingPerItem;
     
     [self setBackgroundColor:[UIColorHelper colorWithRGBA:kMDColorPrimary500]];
