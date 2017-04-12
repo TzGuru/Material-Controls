@@ -38,20 +38,20 @@ IB_DESIGNABLE
 @interface MDTabBar : UIView
 
 /// selected text color
-@property(null_unspecified, nonatomic) IBInspectable UIColor *textColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *textColor;
 /// normal (not selected) text color
-@property(null_unspecified, nonatomic) IBInspectable UIColor *normalTextColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *backgroundColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *indicatorColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *indicatorBackgroundColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *bottomEdgeBorderColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *rippleColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *iconColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *normalTextColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *backgroundColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *indicatorColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *indicatorBackgroundColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *bottomEdgeBorderColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *rippleColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *iconColor;
 
 /// selected font
-@property(nullable, nonatomic) UIFont *textFont;
+@property(nullable, nonatomic, assign) UIFont *textFont;
 /// normal (not selected) font
-@property(nullable, nonatomic) UIFont *normalTextFont;
+@property(nullable, nonatomic, assign) UIFont *normalTextFont;
 
 /// inset from the side (default: 8)
 @property(nonatomic, assign) CGFloat horizontalInset;

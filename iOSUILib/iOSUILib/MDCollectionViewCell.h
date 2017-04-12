@@ -24,5 +24,5 @@
 
 IB_DESIGNABLE
 @interface MDCollectionViewCell : UICollectionViewCell
-@property(nonatomic) IBInspectable UIColor *rippleColor;
+@property(nonatomic, assign) IBInspectable UIColor *rippleColor;
 @end

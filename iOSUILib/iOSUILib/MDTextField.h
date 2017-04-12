@@ -73,19 +73,19 @@ NS_ASSUME_NONNULL_END
 IB_DESIGNABLE
 @interface MDTextField : UIControl
 
-@property(null_unspecified, nonatomic) IBInspectable NSString *hint;
-@property(null_unspecified, nonatomic) IBInspectable NSString *label;
+@property(null_unspecified, nonatomic, copy) IBInspectable NSString *hint;
+@property(null_unspecified, nonatomic, copy) IBInspectable NSString *label;
 @property(nonatomic) IBInspectable BOOL floatingLabel;
 @property(nonatomic) IBInspectable BOOL highlightLabel;
-@property(null_unspecified, nonatomic) IBInspectable NSString *errorMessage;
+@property(null_unspecified, nonatomic, copy) IBInspectable NSString *errorMessage;
 @property(nonatomic) IBInspectable NSInteger maxCharacterCount;
 
-@property(null_unspecified, nonatomic) IBInspectable UIColor *normalColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *highlightColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *errorColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *disabledColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *textColor;
-@property(null_unspecified, nonatomic) IBInspectable UIColor *hintColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *normalColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *highlightColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *errorColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *disabledColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *textColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *hintColor;
 
 @property(nonatomic, getter=isEnabled) IBInspectable BOOL enabled;
 @property(nonatomic) IBInspectable BOOL autoComplete;
@@ -93,7 +93,7 @@ IB_DESIGNABLE
 @property(nonatomic) IBInspectable BOOL fullWidth;
 @property(nonatomic) IBInspectable NSInteger minVisibleLines;
 @property(nonatomic) IBInspectable NSInteger maxVisibleLines;
-@property(null_unspecified, nonatomic) IBInspectable NSString *text;
+@property(null_unspecified, nonatomic, copy) IBInspectable NSString *text;
 @property(nonatomic) IBInspectable BOOL secureTextEntry;
 @property(nonatomic) IBInspectable BOOL dividerAnimation;
 @property(nonatomic) IBInspectable BOOL restrictInBounds;
@@ -102,12 +102,12 @@ IB_DESIGNABLE
 @property(nonatomic) UIKeyboardType keyboardType;
 
 @property(nonatomic) BOOL hasError;
-@property(nonnull, nonatomic) UIFont *labelsFont;
-@property(nonnull, nonatomic) UIFont *inputTextFont;
-@property(nonnull, nonatomic) NSLayoutConstraint *textViewHeightConstraint;
-@property(nullable, nonatomic) NSArray<NSString *> *suggestionsDictionary;
+@property(nonnull, nonatomic, assign) UIFont *labelsFont;
+@property(nonnull, nonatomic, assign) UIFont *inputTextFont;
+@property(nonnull, nonatomic, strong) NSLayoutConstraint *textViewHeightConstraint;
+@property(nullable, nonatomic, strong) NSArray<NSString *> *suggestionsDictionary;
 
-@property(nonatomic, weak) id<MDTextFieldDelegate> delegate;
+@property(nonatomic, weak, nullable) id<MDTextFieldDelegate> delegate;
 @property(nonatomic, nullable, readwrite, strong) UIView *inputAccessoryView;
 
 - (float)requiredHeightWithNumberOfTextLines:(NSUInteger)numberOfLines;

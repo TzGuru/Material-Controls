@@ -26,14 +26,14 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface MDProgressLayer : CALayer
 
-@property(nullable, nonatomic) UIColor *progressColor;
-@property(nullable, nonatomic) UIColor *trackColor;
+@property(nullable, nonatomic, assign) UIColor *progressColor;
+@property(nullable, nonatomic, assign) UIColor *trackColor;
 @property(nonatomic) CGFloat trackWidth;
 @property(nonatomic) BOOL drawTrack;
 @property(nonatomic) BOOL determinate;
 @property(nonatomic) CGFloat progress;
-@property(nonatomic) CALayer *superLayer;
-@property(nullable, nonatomic) UIView *superView;
+@property(nonatomic, weak) CALayer *superLayer;
+@property(nullable, nonatomic, weak) UIView *superView;
 
 @property(nonatomic) BOOL isAnimating;
 

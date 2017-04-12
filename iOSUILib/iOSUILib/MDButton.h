@@ -41,12 +41,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 IB_DESIGNABLE
 @interface MDButton : UIButton
-@property(null_unspecified, nonatomic) IBInspectable UIColor *rippleColor;
+@property(null_unspecified, nonatomic, assign) IBInspectable UIColor *rippleColor;
 @property(nonatomic) IBInspectable NSInteger type;
 @property(nonatomic, getter=isEnabled) IBInspectable BOOL enabled;
-@property(nonatomic) IBInspectable UIImage *imageNormal;
-@property(nonatomic) IBInspectable UIImage *imageRotated;
-@property(nonatomic) IBInspectable CGFloat imageSize;
+@property(nonatomic, copy) IBInspectable UIImage *imageNormal;
+@property(nonatomic, copy) IBInspectable UIImage *imageRotated;
+@property(nonatomic, assign) IBInspectable CGFloat imageSize;
 
 @property(nonatomic) MDButtonType mdButtonType;
 @property(nonatomic, getter=isRotated) BOOL rotated;

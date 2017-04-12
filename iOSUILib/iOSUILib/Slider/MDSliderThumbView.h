@@ -37,9 +37,9 @@ typedef NS_ENUM(NSInteger, MDSliderThumbState) {
 NS_ASSUME_NONNULL_BEGIN
 @interface MDSliderThumbView : UIView
 
-@property(nonatomic) MDBubbleLabel *bubble;
-@property(nonatomic) UIView *node;
-@property(nonatomic) MDSliderThumbState state;
+@property(nonatomic, strong) MDBubbleLabel *bubble;
+@property(nonatomic, weak) UIView *node;
+@property(nonatomic, assign) MDSliderThumbState state;
 @property(nonatomic, weak) MDSlider *slider;
 @property(nonatomic) BOOL enableBubble;
 

@@ -25,6 +25,6 @@
 IB_DESIGNABLE
 @interface MDTableViewCell : UITableViewCell
 
-@property(nonatomic) IBInspectable UIColor *rippleColor;
+@property(nonatomic, assign) IBInspectable UIColor *rippleColor;
 
 @end

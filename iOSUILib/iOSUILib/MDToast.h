@@ -29,12 +29,12 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface MDToast : UIControl
 
-@property(nullable, nonatomic) NSString *text;
-@property(nullable, nonatomic) UIColor *textColor;
-@property(nullable, nonatomic) UIFont *textFont;
+@property(nullable, nonatomic, copy) NSString *text;
+@property(nullable, nonatomic, assign) UIColor *textColor;
+@property(nullable, nonatomic, assign) UIFont *textFont;
 @property(nonatomic) NSTimeInterval duration;
 @property(nonatomic, readonly) BOOL isShowing;
-@property(nonatomic) MDGravity gravity;
+@property(nonatomic, assign) MDGravity gravity;
 
 - (instancetype)initWithText:(NSString *)text duration:(NSTimeInterval)duration;
 - (void)setGravity:(MDGravity)gravity xOffset:(int)xOffset yOffset:(int)yOffset;

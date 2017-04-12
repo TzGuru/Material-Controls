@@ -37,8 +37,8 @@ typedef NS_ENUM(NSInteger, MDProgressType) {
 IB_DESIGNABLE
 @interface MDProgress : UIView
 
-@property(nonatomic) IBInspectable UIColor *progressColor;
-@property(nonatomic) IBInspectable UIColor *trackColor;
+@property(nonatomic, assign) IBInspectable UIColor *progressColor;
+@property(nonatomic, assign) IBInspectable UIColor *trackColor;
 @property(nonatomic) MDProgressType progressType;
 @property(nonatomic) MDProgressStyle progressStyle;
 

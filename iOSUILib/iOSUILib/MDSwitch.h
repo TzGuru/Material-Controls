@@ -26,10 +26,10 @@ IB_DESIGNABLE
 
 @property(nonatomic, getter=isOn) IBInspectable BOOL on;
 //@property(nonatomic, getter=isEnabled) IBInspectable BOOL enabled;
-@property(nonatomic) IBInspectable UIColor *thumbOn;
-@property(nonatomic) IBInspectable UIColor *trackOn;
-@property(nonatomic) IBInspectable UIColor *thumbOff;
-@property(nonatomic) IBInspectable UIColor *trackOff;
-@property(nonatomic) IBInspectable UIColor *thumbDisabled;
-@property(nonatomic) IBInspectable UIColor *trackDisabled;
+@property(nonatomic, assign) IBInspectable UIColor *thumbOn;
+@property(nonatomic, assign) IBInspectable UIColor *trackOn;
+@property(nonatomic, assign) IBInspectable UIColor *thumbOff;
+@property(nonatomic, assign) IBInspectable UIColor *trackOff;
+@property(nonatomic, assign) IBInspectable UIColor *thumbDisabled;
+@property(nonatomic, assign) IBInspectable UIColor *trackDisabled;
 @end

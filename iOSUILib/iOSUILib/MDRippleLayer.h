@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  * as the effectColor with 50% alpha component, background color will have 30%
  * alpha component
  */
-@property(null_unspecified, nonatomic) UIColor *effectColor;
+@property(null_unspecified, nonatomic, assign) UIColor *effectColor;
 
 - (instancetype)initWithSuperLayer:(CALayer *)superLayer;
 - (instancetype)initWithSuperView:(UIView *)superView;

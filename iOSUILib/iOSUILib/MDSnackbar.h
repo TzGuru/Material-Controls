@@ -40,10 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
 IB_DESIGNABLE
 @interface MDSnackbar : UIControl
 
-@property(nonatomic) NSString *text;
-@property(nonatomic) NSString *actionTitle;
-@property(nonatomic) UIColor *textColor;
-@property(nonatomic) UIColor *actionTitleColor;
+@property(nonatomic, copy) NSString *text;
+@property(nonatomic, copy) NSString *actionTitle;
+@property(nonatomic, assign) UIColor *textColor;
+@property(nonatomic, assign) UIColor *actionTitleColor;
 @property(nonatomic) double duration;
 @property(nonatomic) double bottomPadding;
 @property(nonatomic) BOOL swipeable;

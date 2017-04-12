@@ -24,6 +24,6 @@
 
 @interface MDSuggestTableView : UITableView
 
-@property(nonatomic) UIFont *textFont;
+@property(nonatomic, assign) UIFont *textFont;
 
 @end
