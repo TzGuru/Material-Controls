@@ -27,7 +27,7 @@
 @property(nonatomic) CGFloat maximumValue;
 @property(nonatomic) CGFloat minimumValue;
 @property(nonatomic) CGFloat step;
-@property(nonnull, nonatomic) UIColor *tickColor;
+@property(nonnull, nonatomic, assign) UIColor *tickColor;
 
 - (CGFloat)theNearestTickValueFromValue:(CGFloat)value;
 @end
